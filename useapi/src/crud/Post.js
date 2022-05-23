@@ -17,7 +17,7 @@ export default function Post(props){
                     setRecord(response);
                 });
 
-            },[]);
+            },[props.title, props.url]);
 
     return(
         <React.Fragment>

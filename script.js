@@ -1,11 +1,14 @@
 const express = require('express'); //Import Express
 const app = express(); //Create Express Application on the app variable
-const cors = require('cors');
+const cors = require('cors'); //CORS is needed to make this work in modern browsers
 app.use(express.json()); //used the json file
-app.use(cors());
+app.use(cors());        //use CORS
  
 //Give initial data to the server
 //This is a JSON array of Objects
+
+//NOTE: as I progress, this will be moved to a file save
+//and later a MySQL save
 const customers = [
     {title: 'George', id: 1},
     {title: 'Josh', id: 2},
@@ -24,8 +27,8 @@ app.get('/', (request, response) => {
 });
 
 //GET
-// Display the List Of Customers when URL consists of api customers
-//Express has a built in method for get
+// Display the List Of Customers when URL consists of api/customers
+//Express has a built in method for GET
 // and the response object has a built in method for send
 app.get('/api/customers', (request, response)=> {
         
@@ -34,7 +37,7 @@ app.get('/api/customers', (request, response)=> {
 );
 
 //GET{id}
-// Display the Information Of Specific Customer when you mention the id.
+// Display the Information Of a Specific Customer when you mention the id.
 //The ':' is for identification of the variable in the Express call
 //You would not use it in forming the URL
 //True URL = localhost/api/customers/4 not customers/:4
@@ -68,7 +71,7 @@ app.post('/api/customers', (request, response)=> {
     //However, if you delete a record, or more, length no 
     //longer determines the highest ID number.
 
-    //This beginning routine, finds the highest ID actually in use.
+    //This the beginning routine, finds the highest ID actually in use.
 
     //Set our maximum ID variable
     var maxID = 0;
@@ -76,11 +79,12 @@ app.post('/api/customers', (request, response)=> {
     //Find the highest ID in our array of customers
     customers.forEach( (element)=> {
         if( maxID < parseInt(element.id)){
+
             maxID = parseInt(element.id);
         }
     })
 
-//Increment the customer id
+//Increment the customer id for the new customer object
     const customer = {
         id: maxID + 1,
         title: request.body.title
@@ -113,10 +117,16 @@ app.put('/api/customers/:id', (request, response) => {
 // Delete Customer Details
 app.delete('/api/customers/:id', (req, res) => {
  
+//If we can't find the record, we can't delete it
 const customer = customers.find( c=> c.id === parseInt(req.params.id));
 if(!customer) res.status(404).send('<h2 style="font-family: Malgun Gothic; color: darkred;">Not Found!!</h2>');
  
+//Find the array index of the customer record requested for deletion
 const index = customers.indexOf(customer);
+
+//splice method deletes members of array
+//This says, Remove item at index, only 1 item,
+//then "splice" the array back together
 customers.splice(index,1);
  
 res.send(customer);

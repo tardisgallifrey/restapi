@@ -17,8 +17,10 @@ export default function InputRecordNum(props){
 
     return(
         <React.Fragment>
-            <form>
-                <input
+            <form className="input-style">
+                <input 
+                    size='3'
+                    placeholder='0'
                     name='id'
                     type='text'
                     value={id}

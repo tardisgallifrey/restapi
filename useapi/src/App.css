@@ -15,15 +15,42 @@
   color: white;
 }
 
-.App-link:link {
-  color: #00ff00;
-}
-
-.App-link:visited {
+/* visited color for the top line menu */
+.topnav:visited {
   color: #bfc20e;
 }
 
-.App-link:hover {
-  color: #ff0000;
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav:link {
+  float: left;
+  color: #00ff00;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav:hover {
+  background-color: #999999;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Input box stylings */
+.input-style {
+  margin: 5px;
+  padding: 5px;
 }
 

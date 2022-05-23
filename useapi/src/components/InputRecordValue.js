@@ -18,16 +18,15 @@ export default function InputRecordValue(props){
     
       return (
         <React.Fragment>
-        <form>
-          <label>Name:
+        <form className="input-style">
             <input 
+              placehoder='name'
               type="text" 
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
-          </label>
-          <button onClick={click}>Add Customer</button>
         </form>
+        <button onClick={click}>Add Customer</button>
         { flag ? <Post url={props.url} title={title} /> : <h3>Enter customer name.</h3>}
         </React.Fragment>
       );

@@ -1,3 +1,6 @@
+
+/* all body elements of our HTML will use from these font families,
+   with margins of 0 and two settings for fonts from webkit and mozilla */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,6 +10,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* all code marked items will use these font families and be monospaced */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

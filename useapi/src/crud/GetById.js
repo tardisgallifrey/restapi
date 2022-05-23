@@ -9,22 +9,23 @@ export default function GetById(props){
   const [post, getPost] = useState([])
   
   //The fetch function
-  const fetchPost = () => {
+  useEffect( ()=> {
 
+    const requestOptions = {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+      };
     //Not using the options parameter, yet
-    fetch(props.url + '/' + props.id)                                                                                                                                                                                                                                     ////////
+    fetch(props.url + '/' + props.id, requestOptions)                                                                                                                                                                                                                                     ////////
       .then((response) => response.json())
       .then((response) => {
 
         //getPost is my setState function
         getPost(response)
       })
-  }
+  
 
-  //useEffect calls fetchPost function
-  useEffect(() => {
-    fetchPost()
-  });
+  },[props.id, props.url]);
 
   return(
     <React.Fragment>

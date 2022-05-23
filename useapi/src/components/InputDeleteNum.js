@@ -17,8 +17,10 @@ export default function InputDeleteNum(props){
 
     return(
         <React.Fragment>
-            <form>
+            <form className="input-style">
                 <input
+                    size='3'
+                    placeholder='0'
                     name='id'
                     type='text'
                     value={id}

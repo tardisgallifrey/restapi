@@ -1,16 +1,18 @@
-import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from './Layouts/Layout';
-import { Home } from './pages/Home';
-import GetAll from './crud/GetAll';
-import InputRecordNum from './components/InputRecordNum';
-import InputDeleteNum from './components/InputDeleteNum';
-import InputRecordValue from './components/InputRecordValue';
-import InputModified from './components/InputModified';
-import NoPage from './pages/NoPage';
+import './App.css';                                               //load CSS for the app
+import { BrowserRouter, Routes, Route } from "react-router-dom";  //load Route methods
+import Layout from './Layouts/Layout';                            //include Layout, where links are
+import { Home } from './pages/Home';                              //Home page
+import GetAll from './crud/GetAll';                               //GET all component
+import InputRecordNum from './components/InputRecordNum';         //choose Record number
+import InputDeleteNum from './components/InputDeleteNum';         //choose record to delete
+import InputRecordValue from './components/InputRecordValue';     //choose name to enter
+import InputModified from './components/InputModified';           //modify record selections
+import NoPage from './pages/NoPage';                              //404 page
 
+//This is the URL for the API.  Change it when it's real not development
 const url = "http://localhost:8080/api/customers";
 
+//With Routing, our App function is dedicated to routing with almost no rendering.
 export default function App() {
   return (
     <BrowserRouter>

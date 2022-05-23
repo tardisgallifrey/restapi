@@ -19,23 +19,22 @@ export default function InputModified(props){
     
       return (
         <React.Fragment>
-        <form>
-          <label>Name:
+        <form className="input-style">
             <input 
+              placeholder='name'
               type="text" 
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
-          </label>
-          <label>ID:
             <input 
+              size='3'
+              placeholder='0'
               type="text" 
               value={id}
               onChange={(e) => setID(e.target.value)}
             />
-          </label>
-          <button onClick={click}>Modify Customer</button>
         </form>
+        <button onClick={click}>Modify Customer</button>
         { flag ? <Put url={props.url} title={title} id={id}/> : <h3>Enter customer name and record num.</h3>}
         </React.Fragment>
       );
