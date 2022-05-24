@@ -24,6 +24,7 @@ const customers = [
 // Display the Message when the URL consist of '/'
 app.get('/', (request, response) => {
     response.send('Welcome to Dave\'s Node REST API!');
+    console.log("User didn't append an api call.");
 });
 
 //GET
@@ -33,6 +34,7 @@ app.get('/', (request, response) => {
 app.get('/api/customers', (request, response)=> {
         
         response.send(customers);
+        console.log("User requested all records [GET].");
     }
 );
 
@@ -56,9 +58,11 @@ app.get('/api/customers/:id', (request, response) => {
 
     if (!customer){
         response.status(404).send('<h2 style="font-family: Malgun Gothic; color: darkred;">Ooops... Cant find what you are looking for!</h2>');
+        console.log("User requested GET, but no record found [GET]");
     }
 
     response.send(customer);
+    console.log("User requested GET by ID number [GET]");
 });
 
 //POST

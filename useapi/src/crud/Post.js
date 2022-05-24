@@ -1,7 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 
 export default function Post(props){
     const [record, setRecord] = useState({});
+    
+
+    
 
     useEffect( () => {
             const requestOptions = {
@@ -17,7 +21,7 @@ export default function Post(props){
                     setRecord(response);
                 });
 
-            },[props.title, props.url]);
+            },[]);
 
     return(
         <React.Fragment>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 
 
@@ -24,7 +25,7 @@ export default function GetAll(props){
         getPost(response)
       })
   
-  }, [props.url]);
+  }, []);
 
   return(
     <React.Fragment>

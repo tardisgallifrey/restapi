@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 
 export default function Put(props){
@@ -17,7 +18,7 @@ export default function Put(props){
                     setRecord(response);
                 });
 
-            },[props.id, props.title, props.url]);
+            },[]);
 
     return(
         <React.Fragment>

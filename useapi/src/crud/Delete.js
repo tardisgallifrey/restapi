@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 
 export default function Delete(props){
@@ -15,7 +16,7 @@ export default function Delete(props){
         .then((response) => {
           setRecord(response);
         })
-      },[props.id, props.url]);
+      },[]);
 
       return(
         <React.Fragment>
