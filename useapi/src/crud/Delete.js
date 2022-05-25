@@ -4,6 +4,11 @@ import React, { useEffect, useState } from "react";
 export default function Delete(props){
   const [record, setRecord] = useState({});
 
+  const errorfunc = (error) => {
+    setRecord({title: "Error during API call", id: 1});
+    alert(error.message);
+  }
+
   useEffect( ()=> {
         const requestOptions = {
             method: 'DELETE',
@@ -12,10 +17,14 @@ export default function Delete(props){
 
       
       fetch(props.url + '/' + props.id, requestOptions)                                                                                                                                                                                                                                     ////////
-        .then((response) => response.json())
-        .then((response) => {
-          setRecord(response);
-        })
+        .then(
+          response => response.json(),
+          error => errorfunc(error)
+        )
+        .then(
+          (response) => {setRecord(response);},
+          (error) => errorfunc(error)
+        )
       },[]);
 
       return(

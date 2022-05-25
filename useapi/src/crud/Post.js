@@ -4,24 +4,28 @@ import React, { useEffect, useState } from "react";
 export default function Post(props){
     const [record, setRecord] = useState({});
     
-
-    
+    const errorfunc = (error) => {
+        setRecord({title: "Error during API call", id: 1});
+        alert(error.message);
+    }
 
     useEffect( () => {
-            const requestOptions = {
+        const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ title: props.title })
-            };
+        };
 
-            fetch(props.url, requestOptions)
-                .then(response => response.json())
-                .then(response => {
-                    console.log(response);
-                    setRecord(response);
-                });
-
-            },[]);
+        fetch("localhost", requestOptions)
+            .then(
+                response => response.json(),
+                error => errorfunc(error)
+            )
+            .then(
+                response => setRecord(response),
+                error => errorfunc(error)
+            );
+        },[]);
 
     return(
         <React.Fragment>

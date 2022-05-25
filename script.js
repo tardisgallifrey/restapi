@@ -97,6 +97,7 @@ app.post('/api/customers', (request, response)=> {
     //push() is a javascript array method
     customers.push(customer);
         response.send(customer);
+    console.log("New Record Added");    
 }
 );
  
