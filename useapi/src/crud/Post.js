@@ -16,7 +16,7 @@ export default function Post(props){
             body: JSON.stringify({ title: props.title })
         };
 
-        fetch("localhost", requestOptions)
+        fetch(props.url, requestOptions)
             .then(
                 response => response.json(),
                 error => errorfunc(error)
